@@ -1,10 +1,11 @@
 #!/bin/sh
-cmdline(){uname -m}
-Processor=cmdline
+
+Processor=$(uname -m)
 # Install Docker
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-if ["$Processor" =  "armv6l"]; then
+if [ "$Processor" =  'armv6l' ]
+then
 	# For ARMHF
 	echo "Pi Zero Detected"
 	echo "deb [arch=armhf signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -31,7 +32,8 @@ cd WM8960-Audio-HAT
 apt update && sudo apt install docker-ce docker-ce-cli containerd.io
 
 
-if ["$Processor" =  "armv6l"]; then
+if [ "$Processor" =  'armv6l' ]
+then
 	# For RPI zero:
 	echo "Setting Docker to Experimental for Pi Zero"
 	echo "{ \"experimental\": true }" > /etc/docker/daemon.json
