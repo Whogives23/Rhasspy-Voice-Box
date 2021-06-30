@@ -28,9 +28,6 @@ git clone https://github.com/waveshare/WM8960-Audio-HAT
 cd WM8960-Audio-HAT
  ./install.sh 
 
-
-apt update && sudo apt install docker-ce docker-ce-cli containerd.io
-
 #Setup the Docker Container for Rhasspy
 if [ "$Processor" =  'armv6l' ]
 then
