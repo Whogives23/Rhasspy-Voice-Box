@@ -52,6 +52,7 @@ docker run -d -p 12101:12101 \
       --profile en
 
 #Setup and run a service to run the python script that controls the LEDs
+cd ..
 cp ./mqttled.service /lib/systemd/system/mqttled.service
 cp ./mqtt_led.py /home/pi/mqtt_led.py
 chmod +x /home/pi/mqtt_led.py
