@@ -31,7 +31,7 @@ cd WM8960-Audio-HAT
 
 apt update && sudo apt install docker-ce docker-ce-cli containerd.io
 
-
+#Setup the Docker Container for Rhasspy
 if [ "$Processor" =  'armv6l' ]
 then
 	# For RPI zero:
@@ -40,7 +40,7 @@ then
 	systemctl restart docker
 	docker pull --platform linux/arm/v6 rhasspy/rhasspy
 fi
-
+#Run the Docker Container
 docker run -d -p 12101:12101 \
       --name rhasspy \
       --restart unless-stopped \
@@ -51,7 +51,7 @@ docker run -d -p 12101:12101 \
       --user-profiles /profiles \
       --profile en
 
-
+#Setup and run a service to run the python script that controls the LEDs
 cp ./mqttled.service /lib/systemd/system/mqttled.service
 cp ./mqtt_led.py /home/pi/mqtt_led.py
 chmod +x /home/pi/mqtt_led.py
