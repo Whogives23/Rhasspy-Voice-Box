@@ -6,37 +6,52 @@ dockerInstalled=$(docker -v)
 # Update Pi
 echo "###########################"
 echo "      UPDATING PI"
+echo "###########################"
+
 apt update -y && apt upgrade -y && apt dist-upgrade -y
 
 # Install Needed Packages
+echo " "
 echo "###########################"
 echo "    INSTALLING PACKAGES"
+echo "###########################"
+
 apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release
 pip3 install paho-mqtt
 pip3 install rpi-ws281x
 
 # Install Docker
+echo " "
 echo "###########################"
 if [ "$dockerInstalled" != *"Docker version"*]
 then	
 	echo "     INSTALLING DOCKER"
+	echo "###########################"
+
 	curl -fsSL https://get.docker.com -o get-docker.sh
 	sh get-docker.sh
 else
 	echo "  DOCKER ALREADY INSTALLED"
+	echo "###########################"
+
 fi
 
 # Install Audio Hat Driver
+echo " "
 echo "###########################"
 echo "  INSTALLING PI AUDIO HAT"
+echo "###########################"
+
 git clone https://github.com/waveshare/WM8960-Audio-HAT
 cd WM8960-Audio-HAT
  ./install.sh 
 
 #Setup the Docker Container for Rhasspy
-
+echo " "
 echo "###########################"
 echo "    INSTALLING RHASSPY"
+echo "###########################"
+
 if [ "$Processor" =  'armv6l' ]
 then
 	# For RPI zero:
@@ -57,9 +72,11 @@ docker run -d -p 12101:12101 \
       --profile en
 
 #Setup and run a service to run the python script that controls the LEDs
-
+echo " "
 echo "###########################"
 echo "  INSTALLING LED SCRIPT"
+echo "###########################"
+
 cd ..
 cp ./mqttled.service /lib/systemd/system/mqttled.service
 cp ./mqtt_led.py /home/pi/mqtt_led.py
