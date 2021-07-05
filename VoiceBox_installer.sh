@@ -1,25 +1,17 @@
 #!/bin/sh
 
 Processor=$(uname -m)
-# Install Docker
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-if [ "$Processor" =  'armv6l' ]
-then
-	# For ARMHF
-	echo "Pi Zero Detected"
-	echo "deb [arch=armhf signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-else
-	# For ARM64:
-	echo " Pi 3 upward detected"
-	echo "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-fi
 
 # Update Pi
 apt update -y && apt upgrade -y && apt dist-upgrade -y
 
+# Install Docker
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
 # Install Needed Packages
-apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release docker-ce docker-ce-cli containerd.io -y
+apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release
 pip3 install paho-mqtt
 pip3 install rpi-ws281x
 
