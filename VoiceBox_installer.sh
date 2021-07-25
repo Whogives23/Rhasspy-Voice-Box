@@ -97,6 +97,10 @@ then
 	echo "###########################"
 
 	cd ..
+	sed -i "s/<SiteId>/$SiteId/g" $LEDScript
+	sed -i "s/<MQTTHost>/$HostId/g" $LEDScript
+	sed -i "s/<MQTTUsername>/$MQTTUsername/g" $LEDScript
+	sed -i "S/<MQTTPassword>/$MQTTPassword/g" $LEDScript
 	cp ./mqttled.service /lib/systemd/system/mqttled.service
 	cp ./mqtt_led.py /home/pi/mqtt_led.py
 	chmod +x /home/pi/mqtt_led.py
