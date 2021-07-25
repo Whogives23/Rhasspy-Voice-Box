@@ -100,11 +100,11 @@ docker run -d -p 12101:12101 \
       --user-profiles /profiles \
       --profile en
 
-sed -i "s/<SiteID>/$SiteId/g" $SatelliteProfile
-sed -i "s/<MQTTHost>/$HostId/g" $SatelliteProfile
-sed -i "s/<MQTTUsername>/$MQTTUsername/g" $SatelliteProfile
-set -i "s/<MQTTPassword>/$MQTTPassword/g" $SatelliteProfile
-docker cp $SatelliteProfile rhasspy:/profiles/en/profile.json
+sed -i "s/<SiteID>/$SiteId/g" "$SatelliteProfile"
+sed -i "s/<MQTTHost>/$HostId/g" "$SatelliteProfile"
+sed -i "s/<MQTTUsername>/$MQTTUsername/g" "$SatelliteProfile"
+sed -i "s/<MQTTPassword>/$MQTTPassword/g" "$SatelliteProfile"
+docker cp "$SatelliteProfile" rhasspy:/profiles/en/profile.json
 #Setup and run a service to run the python script that controls the LEDs
 if [ "$isLED" | sed -e 's/\(.*\)/\L\1/' = "yes" ]
 then
@@ -114,12 +114,12 @@ then
 	echo "###########################"
 
 	cd ..
-	sed -i "s/<SiteId>/$SiteId/g" $LEDScript
-	sed -i "s/<MQTTHost>/$HostId/g" $LEDScript
-	sed -i "s/<MQTTUsername>/$MQTTUsername/g" $LEDScript
-	sed -i "s/<MQTTPassword>/$MQTTPassword/g" $LEDScript
-	sed -i "s/<LEDCount>/$LEDCount/g" $LEDScript
-	sed -i "s/<LEDPin>/$LEDPin/g" $LEDScript
+	sed -i "s/<SiteId>/$SiteId/g" "$LEDScript"
+	sed -i "s/<MQTTHost>/$HostId/g" "$LEDScript"
+	sed -i "s/<MQTTUsername>/$MQTTUsername/g" "$LEDScript"
+	sed -i "s/<MQTTPassword>/$MQTTPassword/g" "$LEDScript"
+	sed -i "s/<LEDCount>/$LEDCount/g" "$LEDScript"
+	sed -i "s/<LEDPin>/$LEDPin/g" "$LEDScript"
 	cp ./mqttled.service /lib/systemd/system/mqttled.service
 	cp $LEDScript /home/pi/mqtt_led.py
 	chmod +x /home/pi/mqtt_led.py
