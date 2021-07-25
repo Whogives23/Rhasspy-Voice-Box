@@ -19,9 +19,9 @@ echo "WHAT IS YOUR MQTT BROKER PASSWORD? (LEAVE THIS BLANK IF NONE)"
 read MQTTPassword
 echo ""
 echo "ARE YOU GOING TO BE RUNNING NEOPIXEL LEDS ON THIS DEVICE? (yes/no)"
-read isLED
+read isLED 
 echo ""
-if [ "$isLED" | tr '[:upper:]' '[:lower:]' = "yes" ]
+if [ "$isLED" | sed -e 's/\(.*\)/\L\1/' = "yes" ]
 then
 	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
 	read: LEDCount
@@ -45,9 +45,9 @@ echo "###########################"
 echo "    INSTALLING PACKAGES"
 echo "###########################"
 
-apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release
-pip3 install paho-mqtt
-pip3 install rpi-ws281x
+apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release -y
+pip3 install paho-mqtt -y
+pip3 install rpi-ws281x -y
 
 # Install Docker
 echo " "
@@ -106,7 +106,7 @@ sed -i "s/<MQTTUsername>/$MQTTUsername/g" $SatelliteProfile
 set -i "s/<MQTTPassword>/$MQTTPassword/g" $SatelliteProfile
 docker cp $SatelliteProfile rhasspy:/profiles/en/profile.json
 #Setup and run a service to run the python script that controls the LEDs
-if [ "$isLED" | tr '[:upper:]' '[:lower:]' = "yes" ]
+if [ "$isLED" | sed -e 's/\(.*\)/\L\1/' = "yes" ]
 then
 	echo " "
 	echo "###########################"
