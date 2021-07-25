@@ -17,7 +17,7 @@ read isLED
 if ["$isLED" | tr '[:upper:]' '[:lower:]' = "yes"]
 	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
 	read: LEDCount
-	echo "WHICH PIN ON THE PI ARE YOU USING FOR THE LEDS? (YOU ARE LIMITED TO: 12..."
+	echo "WHICH PIN ON THE PI ARE YOU USING FOR THE LEDS? (18 IS SUGGESTED)"
 	read LEDPin
 echo "GOOD TO GO. WATCH THIS SPACE"
 echo ""
