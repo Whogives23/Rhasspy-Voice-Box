@@ -57,7 +57,7 @@ if [ ! "$dockerInstalled" = *"Docker version"* ]
 then	
 	echo "     INSTALLING DOCKER"
 	echo "###########################"
-
+	apt install dpkg -y
 	curl -fsSL https://get.docker.com -o get-docker.sh
 	sh get-docker.sh
 else
