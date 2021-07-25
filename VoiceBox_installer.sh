@@ -46,8 +46,8 @@ echo "    INSTALLING PACKAGES"
 echo "###########################"
 
 apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release -y
-pip3 install paho-mqtt -y
-pip3 install rpi-ws281x -y
+pip install paho-mqtt -y
+pip install rpi-ws281x -y
 
 # Install Docker
 echo " "
