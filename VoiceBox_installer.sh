@@ -47,8 +47,8 @@ echo "    INSTALLING PACKAGES"
 echo "###########################"
 
 apt install git python3 python3-pip apt-transport-https ca-certificates curl gnupg lsb-release -y
-pip3 install paho-mqtt -y
-pip3 install rpi-ws281x -y
+pip3 install paho-mqtt
+pip3 install rpi-ws281x
 
 # Install Docker
 echo " "
@@ -125,7 +125,8 @@ then
 	systemctl daemon-reload
 	systemctl enable mqttled.service
 	systemctl start mqttled.service
-	systemctl status mqttled.service
+	servicestate=$(systemctl status mqttled.service)
+	echo "$servicestate"
 fi
 echo "SETUP COMPLETE! PRESS ANY KEY TO REBOOT"
 read anykey
