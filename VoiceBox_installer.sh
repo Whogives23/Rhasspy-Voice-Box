@@ -21,7 +21,7 @@ echo ""
 echo "ARE YOU GOING TO BE RUNNING NEOPIXEL LEDS ON THIS DEVICE? (yes/no)"
 read isLED
 echo ""
-if ["$isLED" | tr '[:upper:]' '[:lower:]' = "yes"]
+if [ "$isLED" | tr '[:upper:]' '[:lower:]' = "yes" ]
 then
 	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
 	read: LEDCount
@@ -52,7 +52,7 @@ pip3 install rpi-ws281x
 # Install Docker
 echo " "
 echo "###########################"
-if [ "$dockerInstalled" != *"Docker version"*]
+if [ "$dockerInstalled" != *"Docker version"* ]
 then	
 	echo "     INSTALLING DOCKER"
 	echo "###########################"
@@ -105,7 +105,7 @@ sed -i "s/<MQTTHost>/$HostId/g" $SatelliteProfile
 sed -i "s/<MQTTUsername>/$MQTTUsername/g" $SatelliteProfile
 set -i "s/<MQTTPassword>/$MQTTPassword/g" $SatelliteProfile
 #Setup and run a service to run the python script that controls the LEDs
-if ["$isLED" | tr '[:upper:]' '[:lower:]' = "yes"]
+if [ "$isLED" | tr '[:upper:]' '[:lower:]' = "yes" ]
 then
 	echo " "
 	echo "###########################"
