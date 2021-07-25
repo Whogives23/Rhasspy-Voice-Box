@@ -21,7 +21,8 @@ echo ""
 echo "ARE YOU GOING TO BE RUNNING NEOPIXEL LEDS ON THIS DEVICE? (yes/no)"
 read isLED 
 echo ""
-if [ "$isLED" | sed -e 's/\(.*\)/\L\1/' = "yes" ]
+isLED="$isLED" | sed -e 's/\(.*\)/\L\1/'
+if [ "$isLED"  = "yes" ]
 then
 	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
 	read: LEDCount
@@ -106,7 +107,7 @@ sed -i "s/<MQTTUsername>/$MQTTUsername/g" "$SatelliteProfile"
 sed -i "s/<MQTTPassword>/$MQTTPassword/g" "$SatelliteProfile"
 docker cp "$SatelliteProfile" rhasspy:/profiles/en/profile.json
 #Setup and run a service to run the python script that controls the LEDs
-if [ "$isLED" | sed -e 's/\(.*\)/\L\1/' = "yes" ]
+if [ "$isLED" = "yes" ]
 then
 	echo " "
 	echo "###########################"
