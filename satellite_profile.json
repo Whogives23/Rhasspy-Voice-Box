@@ -1,0 +1,37 @@
+{
+    "intent": {
+        "system": "hermes"
+    },
+    "microphone": {
+        "pyaudio": {
+            "device": "0"
+        },
+        "system": "pyaudio"
+    },
+    "mqtt": {
+        "enabled": "true",
+        "host": "192.168.1.8",
+        "password": "118H@igR0ad",
+        "site_id": "BedroomJarvis",
+        "username": "BoB"
+    },
+    "sounds": {
+        "aplay": {
+            "device": "default:CARD=wm8960soundcard"
+        },
+        "system": "aplay"
+    },
+    "speech_to_text": {
+        "system": "hermes"
+    },
+    "text_to_speech": {
+        "system": "hermes"
+    },
+    "wake": {
+        "porcupine": {
+            "keyword_path": "jarvis_raspberry-pi.ppn",
+            "sensitivity": "1"
+        },
+        "system": "porcupine"
+    }
+}
