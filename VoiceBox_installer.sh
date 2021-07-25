@@ -73,8 +73,7 @@ echo "  INSTALLING PI AUDIO HAT"
 echo "###########################"
 
 git clone https://github.com/waveshare/WM8960-Audio-HAT
-cd WM8960-Audio-HAT
- ./install.sh 
+./WM8960-Audio-HAT/install.sh 
 
 #Setup the Docker Container for Rhasspy
 echo " "
@@ -113,8 +112,6 @@ then
 	echo "###########################"
 	echo "  INSTALLING LED SCRIPT"
 	echo "###########################"
-
-	cd ..
 	sed -i "s/<SiteId>/$SiteId/g" "$LEDScript"
 	sed -i "s/<MQTTHost>/$HostId/g" "$LEDScript"
 	sed -i "s/<MQTTUsername>/$MQTTUsername/g" "$LEDScript"
