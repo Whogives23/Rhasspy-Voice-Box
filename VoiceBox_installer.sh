@@ -14,6 +14,11 @@ echo "WHAT IS YOUR MQTT BROKER PASSWORD? (LEAVE THIS BLANK IF NONE)"
 read MQTTPassword
 echo "ARE YOU GOING TO BE RUNNING NEOPIXEL LEDS ON THIS DEVICE? (yes/no)"
 read isLED
+if ["$isLED" | tr '[:upper:]' '[:lower:]' = "yes"]
+	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
+	read: LEDCount
+	echo "WHICH PIN ON THE PI ARE YOU USING FOR THE LEDS? (YOU ARE LIMITED TO: 12..."
+	read LEDPin
 echo "GOOD TO GO. WATCH THIS SPACE"
 echo ""
 # Update Pi
@@ -100,9 +105,11 @@ then
 	sed -i "s/<SiteId>/$SiteId/g" $LEDScript
 	sed -i "s/<MQTTHost>/$HostId/g" $LEDScript
 	sed -i "s/<MQTTUsername>/$MQTTUsername/g" $LEDScript
-	sed -i "S/<MQTTPassword>/$MQTTPassword/g" $LEDScript
+	sed -i "s/<MQTTPassword>/$MQTTPassword/g" $LEDScript
+	sed -i "s/<LEDCount>/$LEDCount/g" $LEDScript
+	sed -i "s/<LEDPin>/$LEDPin/g" $LEDScript
 	cp ./mqttled.service /lib/systemd/system/mqttled.service
-	cp ./mqtt_led.py /home/pi/mqtt_led.py
+	cp $LEDScript /home/pi/mqtt_led.py
 	chmod +x /home/pi/mqtt_led.py
 	chmod 644 /lib/systemd/system/mqttled.service
 	systemctl daemon-reload
