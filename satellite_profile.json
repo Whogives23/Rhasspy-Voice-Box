@@ -12,7 +12,7 @@
         "enabled": "true",
         "host": "<MQTTHost>",
         "password": "<MQTTPassword>",
-        "site_id": "<siteId>",
+        "site_id": "<SiteId>",
         "username": "<MQTTUsername>"
     },
     "sounds": {
