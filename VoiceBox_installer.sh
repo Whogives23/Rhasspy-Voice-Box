@@ -3,22 +3,33 @@ SatelliteProfile=./satellite_profile.json
 LEDScript=./mqtt_led.py
 Processor=$(uname -m)
 dockerInstalled=$(docker -v)
-echo "WELCOME TO MY RHASSPY SATELLITE SETUP SCRIPT!\nPLEASE SUPPLY THE FOLLOWING INFO:"
+echo "WELCOME TO MY RHASSPY SATELLITE SETUP SCRIPT!"
+echo "PLEASE SUPPLY THE FOLLOWING INFO:"
+echo ""
 echo "WHAT IS THIS DEVICE'S NAME?(EG: LoungeEcho)[NO SPACES]"
 read SiteId
+echo ""
 echo "WHAT IS YOUR MQTT BROKER NAME OR IP ADDRESS? (EG: broker.local or 192.168.1.5)"
 read HostId
+echo ""
 echo "WHAT IS YOUR MQTT BROKER USERNAME?"
 read MQTTUsername
+echo ""
 echo "WHAT IS YOUR MQTT BROKER PASSWORD? (LEAVE THIS BLANK IF NONE)"
 read MQTTPassword
+echo ""
 echo "ARE YOU GOING TO BE RUNNING NEOPIXEL LEDS ON THIS DEVICE? (yes/no)"
 read isLED
+echo ""
 if ["$isLED" | tr '[:upper:]' '[:lower:]' = "yes"]
+then
 	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
 	read: LEDCount
-	echo "WHICH PIN ON THE PI ARE YOU USING FOR THE LEDS? (18 IS SUGGESTED)"
+	echo ""
+	echo "WHICH PIN ON THE PI ARE YOU USING FOR THE LEDS? (12 IS PREFERRED)"
 	read LEDPin
+fi
+echo ""
 echo "GOOD TO GO. WATCH THIS SPACE"
 echo ""
 # Update Pi
