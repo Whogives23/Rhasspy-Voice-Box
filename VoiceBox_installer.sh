@@ -104,6 +104,7 @@ sed -i "s/<SiteID>/$SiteId/g" $SatelliteProfile
 sed -i "s/<MQTTHost>/$HostId/g" $SatelliteProfile
 sed -i "s/<MQTTUsername>/$MQTTUsername/g" $SatelliteProfile
 set -i "s/<MQTTPassword>/$MQTTPassword/g" $SatelliteProfile
+docker cp $SatelliteProfile rhasspy:/profiles/en/profile.json
 #Setup and run a service to run the python script that controls the LEDs
 if [ "$isLED" | tr '[:upper:]' '[:lower:]' = "yes" ]
 then
