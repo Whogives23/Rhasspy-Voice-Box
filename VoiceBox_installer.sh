@@ -25,7 +25,7 @@ isLED="$isLED" | sed -e 's/\(.*\)/\L\1/'
 if [ "$isLED"  = "yes" ]
 then
 	echo "HOW MANY LEDS ARE YOU USING? (EG: 6)"
-	read: LEDCount
+	read LEDCount
 	echo ""
 	echo "WHICH PIN ON THE PI ARE YOU USING FOR THE LEDS? (12 IS PREFERRED)"
 	read LEDPin
