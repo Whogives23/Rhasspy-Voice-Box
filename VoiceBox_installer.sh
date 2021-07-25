@@ -73,8 +73,9 @@ echo "  INSTALLING PI AUDIO HAT"
 echo "###########################"
 
 git clone https://github.com/waveshare/WM8960-Audio-HAT
-./WM8960-Audio-HAT/install.sh 
-
+cd ./WM8960-Audio-HAT
+./install.sh 
+cd ..
 #Setup the Docker Container for Rhasspy
 echo " "
 echo "###########################"
