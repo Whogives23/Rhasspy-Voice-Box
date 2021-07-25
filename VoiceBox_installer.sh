@@ -52,7 +52,7 @@ pip3 install rpi-ws281x
 # Install Docker
 echo " "
 echo "###########################"
-if [ "$dockerInstalled" != *"Docker version"* ]
+if [ ! "$dockerInstalled" = *"Docker version"* ]
 then	
 	echo "     INSTALLING DOCKER"
 	echo "###########################"
