@@ -1,8 +1,21 @@
 #!/bin/sh
-
+SatelliteProfile=./satellite_profile.json
+LEDScript=./mqtt_led.py
 Processor=$(uname -m)
 dockerInstalled=$(docker -v)
-
+echo "WELCOME TO MY RHASSPY SATELLITE SETUP SCRIPT!\nPLEASE SUPPLY THE FOLLOWING INFO:"
+echo "WHAT IS THIS DEVICE'S NAME?(EG: LoungeEcho)[NO SPACES]"
+read SiteId
+echo "WHAT IS YOUR MQTT BROKER NAME OR IP ADDRESS? (EG: broker.local or 192.168.1.5)"
+read HostId
+echo "WHAT IS YOUR MQTT BROKER USERNAME?"
+read MQTTUsername
+echo "WHAT IS YOUR MQTT BROKER PASSWORD? (LEAVE THIS BLANK IF NONE)"
+read MQTTPassword
+echo "ARE YOU GOING TO BE RUNNING NEOPIXEL LEDS ON THIS DEVICE? (yes/no)"
+read isLED
+echo "GOOD TO GO. WATCH THIS SPACE"
+echo ""
 # Update Pi
 echo "###########################"
 echo "      UPDATING PI"
@@ -71,20 +84,28 @@ docker run -d -p 12101:12101 \
       --user-profiles /profiles \
       --profile en
 
+sed -i "s/<SiteID>/$SiteId/g" $SatelliteProfile
+sed -i "s/<MQTTHost>/$HostId/g" $SatelliteProfile
+sed -i "s/<MQTTUsername>/$MQTTUsername/g" $SatelliteProfile
+set -i "s/<MQTTPassword>/$MQTTPassword/g" $SatelliteProfile
 #Setup and run a service to run the python script that controls the LEDs
-echo " "
-echo "###########################"
-echo "  INSTALLING LED SCRIPT"
-echo "###########################"
+if ["$isLED" | tr '[:upper:]' '[:lower:]' = "yes"]
+then
+	echo " "
+	echo "###########################"
+	echo "  INSTALLING LED SCRIPT"
+	echo "###########################"
 
-cd ..
-cp ./mqttled.service /lib/systemd/system/mqttled.service
-cp ./mqtt_led.py /home/pi/mqtt_led.py
-chmod +x /home/pi/mqtt_led.py
-chmod 644 /lib/systemd/system/mqttled.service
-systemctl daemon-reload
-systemctl enable mqttled.service
-systemctl start mqttled.service
-systemctl status mqttled.service
-
+	cd ..
+	cp ./mqttled.service /lib/systemd/system/mqttled.service
+	cp ./mqtt_led.py /home/pi/mqtt_led.py
+	chmod +x /home/pi/mqtt_led.py
+	chmod 644 /lib/systemd/system/mqttled.service
+	systemctl daemon-reload
+	systemctl enable mqttled.service
+	systemctl start mqttled.service
+	systemctl status mqttled.service
+fi
+echo "SETUP COMPLETE! PRESS ANY KEY TO REBOOT"
+read anykey
 reboot
