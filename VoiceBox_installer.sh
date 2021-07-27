@@ -53,7 +53,7 @@ pip3 install rpi-ws281x
 # Install Docker
 echo " "
 echo "###########################"
-if [ ! "$dockerInstalled" = *"Docker version"* ]
+if [ ! "$dockerInstalled" = *"version"* ]
 then	
 	echo "     INSTALLING DOCKER"
 	echo "###########################"
@@ -105,6 +105,7 @@ sed -i "s/<SiteId>/$SiteId/g" "$SatelliteProfile"
 sed -i "s/<MQTTHost>/$HostId/g" "$SatelliteProfile"
 sed -i "s/<MQTTUsername>/$MQTTUsername/g" "$SatelliteProfile"
 sed -i "s/<MQTTPassword>/$MQTTPassword/g" "$SatelliteProfile"
+sleep 5
 docker cp "$SatelliteProfile" rhasspy:/profiles/en/profile.json
 #Setup and run a service to run the python script that controls the LEDs
 if [ "$isLED" = "yes" ]
