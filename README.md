@@ -33,9 +33,12 @@ https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_
           sudo bash VoiceBox_installer.sh
          
           
-##Hardware Setup          
-![20210827_144734](https://user-images.githubusercontent.com/46109936/132100676-1383e2bf-b027-407b-a615-2ba236f68812.jpg)
-![20210904_174254](https://user-images.githubusercontent.com/46109936/132100684-104d979a-36a5-4e67-b8b0-9ba1321778e0.jpg)
-![20210904_174247](https://user-images.githubusercontent.com/46109936/132100687-b369be40-f5fa-4d7e-a9fd-eea92693af01.jpg)
-![20210827_144331](https://user-images.githubusercontent.com/46109936/132100689-2015de03-6c46-4de1-9820-88657e78b13c.jpg)
+##Hardware Setup    
+
 ![20210827_144152](https://user-images.githubusercontent.com/46109936/132100690-790d4188-8b4d-44c1-8b9b-192172375dad.jpg)
+![20210827_144331](https://user-images.githubusercontent.com/46109936/132100689-2015de03-6c46-4de1-9820-88657e78b13c.jpg)
+![20210827_144734](https://user-images.githubusercontent.com/46109936/132100676-1383e2bf-b027-407b-a615-2ba236f68812.jpg)
+![20210904_174247](https://user-images.githubusercontent.com/46109936/132100687-b369be40-f5fa-4d7e-a9fd-eea92693af01.jpg)
+![20210904_174254](https://user-images.githubusercontent.com/46109936/132100684-104d979a-36a5-4e67-b8b0-9ba1321778e0.jpg)
+
+
