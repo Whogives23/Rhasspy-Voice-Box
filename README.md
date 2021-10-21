@@ -23,11 +23,15 @@ https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_
 6. Reboot:
         
         `` sudo reboot``
+        
 7. Once it comes back online, run the following commands to start setup, and follow the on-screen prompts:
-          ```
+         
+         ```
           cd ./Rhasspy-Voice-Box
+          
           sudo bash VoiceBox_installer.sh
           ```
+          
 ##Hardware Setup          
 ![20210827_144734](https://user-images.githubusercontent.com/46109936/132100676-1383e2bf-b027-407b-a615-2ba236f68812.jpg)
 ![20210904_174254](https://user-images.githubusercontent.com/46109936/132100684-104d979a-36a5-4e67-b8b0-9ba1321778e0.jpg)
