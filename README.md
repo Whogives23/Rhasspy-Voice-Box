@@ -18,19 +18,20 @@ https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_
 3. Stick the SD into your Pi, and power it up. Give it a few minutes to get itself together.
 4. once the Pi is available on the network, SSH into it using the relevant IP address.
 5. Run the following command to update, install, and pull the needed files:
-         
-         `` sudo apt update && sudo apt upgrade -y && sudo apt install git -y && git clone https://github.com/Whogives23/Rhasspy-Voice-Box.git``
+       
+          sudo apt update && sudo apt upgrade -y && sudo apt install git -y && git clone https://github.com/Whogives23/Rhasspy-Voice-Box.git
+          
 6. Reboot:
         
-        `` sudo reboot``
+         sudo reboot
         
 7. Once it comes back online, run the following commands to start setup, and follow the on-screen prompts:
          
-         ```
+         
           cd ./Rhasspy-Voice-Box
           
           sudo bash VoiceBox_installer.sh
-          ```
+         
           
 ##Hardware Setup          
 ![20210827_144734](https://user-images.githubusercontent.com/46109936/132100676-1383e2bf-b027-407b-a615-2ba236f68812.jpg)
