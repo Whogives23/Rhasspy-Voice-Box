@@ -34,9 +34,13 @@ https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_
           cd ./Rhasspy-Voice-Box
           
           sudo bash VoiceBox_installer.sh
+          
+8. Once the script is done running, reboot your pi for good measure. and you should be good to go. Please see the Rhasspy docs linked above if you run into any trouble having the slave talk to the base.
          
           
 ##Hardware Setup    
+
+I used glue to assemble the enclosure. but there are holes if to be used with screws if you are so inclined.
 
 ![20210827_144152](https://user-images.githubusercontent.com/46109936/132100690-790d4188-8b4d-44c1-8b9b-192172375dad.jpg)
 ![20210827_144331](https://user-images.githubusercontent.com/46109936/132100689-2015de03-6c46-4de1-9820-88657e78b13c.jpg)
