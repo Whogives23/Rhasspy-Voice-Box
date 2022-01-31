@@ -3,8 +3,10 @@ This is a simple script to setup a raspberry pi as a Rhasspy Voice Assistant.
 currently it Assumes you ar using the wm8960-audio-hat, WS2812 LEDs connected to pin 12(optional Opt-In), and that you are using an MQTT server. Its also set up to be used as a base-slave configuration as explained here: https://rhasspy.readthedocs.io/en/latest/tutorials/#server-with-satellites
 ![20210723_142915](https://user-images.githubusercontent.com/46109936/132101795-ab6fc0a8-ee79-4e48-94f4-013428607ab8.jpg)
 ##Hardware List
+
 Audio HAT:
 https://www.diyelectronics.co.za/store/hats/2366-wm8960-audio-hat-for-raspberry-pi.html?search_query=WM8960&results=2
+
 Raspberry Pi(with header soldered):
 https://www.diyelectronics.co.za/store/boards/1803-raspberry-pi-zero-w.html
 
